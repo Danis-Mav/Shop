@@ -53,8 +53,8 @@ namespace Shop.Pages
                         Password = txt_password.Password.ToString(),
                         RoleId = 3
                     };
-                    DBconnection.shop.User.Add(a);
-                    DBconnection.shop.SaveChanges();
+                    DBconnection.connection.User.Add(a);
+                    DBconnection.connection.SaveChanges();
                     MessageBox.Show("OK");
                     NavigationService.GoBack();
                 }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using Shop.Pages;
 
 namespace Shop
 {
@@ -33,7 +34,7 @@ namespace Shop
         private void AuthoButton(object sender, RoutedEventArgs e)
         {
             
-                users = new ObservableCollection<User>(DBconnection.shop.User.ToList());
+                users = new ObservableCollection<User>(DBconnection.connection.User.ToList());
                 var k = users.Where(a => a.Login == Login_txt.Text && a.Password == Password_txt.Password).FirstOrDefault();
                 if (k != null)
                 {
@@ -47,7 +48,8 @@ namespace Shop
                         Properties.Settings.Default.Login = null;
                         Properties.Settings.Default.Save();
                     }
-                }
+                NavigationService.Navigate(new ListPage(k));
+            }
                 else MessageBox.Show("Логин или пароль введены неверно", "error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 DataContext = this;

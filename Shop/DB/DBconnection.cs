@@ -8,7 +8,6 @@ namespace Shop
 {
     internal class DBconnection
     {
-        public static ShopEntities shop = new ShopEntities();
-        public static User user = new User();
+        public static ShopEntities connection = new ShopEntities();
     }
 }

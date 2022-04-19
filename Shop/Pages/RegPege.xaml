@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Shop.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1000" d:DesignWidth="1200"
+      d:DesignHeight="500" d:DesignWidth="700"
       Background="#FFCFC2"
       Title="RegPege">
 

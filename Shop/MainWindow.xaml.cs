@@ -20,6 +20,7 @@ namespace Shop
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static ShopEntities db = new ShopEntities();
         public MainWindow()
         {
             InitializeComponent();

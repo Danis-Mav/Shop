@@ -1,0 +1,61 @@
+﻿<Page x:Class="Shop.Pages.NewEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Shop.Pages"
+      mc:Ignorable="d" 
+      Background="#FFCFC2"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NewEditPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="btn_back" Content="Назад" Grid.Column="0" Grid.Row="0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_back_Click"/>
+        <Button x:Name="btn_save" Content="Сохранить" Grid.Column="3" Grid.Row="0" Height="30" Width="120" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+
+        <TextBlock Text="Название" Grid.Column="0" Grid.Row="2"/>
+        <TextBlock Text="Описание" Grid.Column="0" Grid.Row="3"/>
+        <TextBlock Text="Ед.измерения" Grid.Column="0" Grid.Row="4"/>
+        <TextBlock Text="Страна" Grid.Column="0" Grid.Row="5"/>
+
+        <TextBox x:Name="tb_name" Grid.Column="1" Grid.Row="2" PreviewTextInput="tb_name_PreviewTextInput"/>
+        <TextBox x:Name="tb_description" Grid.Column="1" Grid.Row="3" PreviewTextInput="tb_name_PreviewTextInput"/>
+
+        <StackPanel x:Name="sp_unit" Grid.Column="1" Grid.Row="4" Margin="5">
+            <RadioButton x:Name="rb_kg" GroupName="unit" Content="кг"/>
+            <RadioButton x:Name="rb_st" GroupName="unit" Content="шт"/>
+            <RadioButton x:Name="rb_l" GroupName="unit" Content="л"/>
+        </StackPanel>
+
+        <StackPanel x:Name="sp_country" Grid.Column="1" Grid.Row="5" Grid.RowSpan="6">
+            <CheckBox x:Name="cb_rus" Content="Россия"/>
+            <CheckBox x:Name="cb_chi" Content="Китай"/>
+            <CheckBox x:Name="cb_alz" Content="Алжир"/>
+            <CheckBox x:Name="cb_hin" Content="Индия"/>
+            <CheckBox x:Name="cb_nor" Content="Норвегия"/>
+            <CheckBox x:Name="cb_mex" Content="Мексика"/>
+            <CheckBox x:Name="cb_aus" Content="Австралия"/>
+        </StackPanel>
+
+        <Image Source="{Binding Product.Photo}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" Margin="15"/>
+        <Button x:Name="btn_newphoto" Content="Добавить фото" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="6" HorizontalAlignment="Center" Width="200"/>
+
+    </Grid>
+</Page>

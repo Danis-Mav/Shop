@@ -1,0 +1,59 @@
+﻿<Page x:Class="Shop.Pages.Order"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Shop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Order">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="btn_back" Content="Назад" Grid.Column="0" Grid.Row="0" Height="40" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_back_Click"/>
+        <Button x:Name="btn_save" Content="Заказать" Grid.Column="3" Grid.Row="0" Height="40" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right" Click="btn_save_Click"/>
+
+        <DataGrid x:Name="dgOrders" Grid.Row="1" Grid.RowSpan="3"  Grid.ColumnSpan="3" ItemsSource="{Binding Orders}" 
+                  AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgOrders_SelectionChanged" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Идентификатор" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=d, ConverterCulture=ru-RU}"/>
+                <DataGridTextColumn Header="Кол-во товаров" Binding="{Binding ProductOrders.Count}"/>
+                <DataGridTextColumn Header="Этап" Binding="{Binding StatusOrder.Name}"/>
+                <DataGridTextColumn Header="Заказчик" Binding="{Binding Client.FIO}"/>
+                <DataGridTextColumn Header="Исполнитель" Binding="{Binding Worker.FIO}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--<DataGrid x:Name="OrderList" Grid.Row="1" Grid.RowSpan="3"  Grid.ColumnSpan="3">
+            <DataGrid.Columns>
+                <DataGridComboBoxColumn Width="150"   x:Name="ProductTb" >
+                </DataGridComboBoxColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox x:Name="CountTb" Height="40" Width="100"></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>-->
+    </Grid>
+</Page>
